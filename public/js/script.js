@@ -25,3 +25,8 @@ $back_button.addEventListener("click", () => {
 	console.log('back button clicked')
 	socket.emit('back')
 })
+
+$stop_button.addEventListener("click", () => {
+	console.log('stop button clicked')
+	socket.emit('stop')
+})
