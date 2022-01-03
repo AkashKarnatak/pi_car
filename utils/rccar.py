@@ -5,10 +5,10 @@ from time import sleep     # Import the sleep function from the time module
 import argparse
 
 # initialize
-MOTOR_LEFT_1 = 11
-MOTOR_LEFT_2 = 12
-MOTOR_RIGHT_1 = 13
-MOTOR_RIGHT_2 = 15
+MOTOR_LEFT_1 = 13
+MOTOR_LEFT_2 = 15
+MOTOR_RIGHT_1 = 11
+MOTOR_RIGHT_2 = 12
 
 # setup
 GPIO.setwarnings(False)    # Ignore warning for now
