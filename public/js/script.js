@@ -5,6 +5,7 @@ $forward_button = $('#forward')
 $left_button = $('#left')
 $right_button = $('#right')
 $back_button = $('#back')
+$stop_button = $('#back')
 
 $forward_button.addEventListener("click", () => {
 	console.log('forward button clicked')
