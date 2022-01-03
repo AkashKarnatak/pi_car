@@ -46,6 +46,13 @@ def back():
     GPIO.setup(MOTOR_RIGHT_1, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(MOTOR_RIGHT_2, GPIO.OUT, initial=GPIO.HIGH)
 
+def stop():
+    print('stop')
+    GPIO.setup(MOTOR_LEFT_1, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(MOTOR_LEFT_2, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(MOTOR_RIGHT_1, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(MOTOR_RIGHT_2, GPIO.OUT, initial=GPIO.LOW)
+
 parser = argparse.ArgumentParser(description='RPICAR go brrrrrrrrrrr')
 
 parser.add_argument(

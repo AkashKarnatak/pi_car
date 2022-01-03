@@ -100,6 +100,28 @@ io.on('connection', (socket) => {
 
 	})
 
+	socket.on('stop', () => {
+
+		const rccar_script = spawn(`./utils/rccar.py stop`, {shell: true})
+
+		rccar_script.stdout.on('data', (data) => {
+			console.log(`out: ${data}`)
+		})
+
+		rccar_script.stderr.on('data', (data) => {
+			console.log(`err: ${data}`)
+		})
+
+		rccar_script.on('close', (code) => {
+			if (code != 0) {
+				return console.log('Error running the script')
+			}
+		})
+
+		console.log('Ran stop script')
+
+	})
+
 })
 
 const port = 8080
