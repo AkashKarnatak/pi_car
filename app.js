@@ -1,5 +1,4 @@
 const express = require('express')
-const fs = require('fs')
 const path = require('path')
 const { spawn } = require('child_process')
 const { Server } = require('socket.io')
@@ -9,17 +8,13 @@ const app = express()
 const httpServer = createServer(app)
 const io = new Server(httpServer)
 
-let socket = null
-
-io.on('connection', (_socket) => {
-
-	socket = _socket
+io.on('connection', (socket) => {
 
 	console.log('new connection')
 
 	socket.on('forward', () => {
 
-		const rccar_script = spawn(`./utils/rccar.py`, {shell: true})
+		const rccar_script = spawn(`./utils/rccar.py forward`, {shell: true})
 
 		rccar_script.stdout.on('data', (data) => {
 			console.log(`out: ${data}`)
@@ -41,7 +36,7 @@ io.on('connection', (_socket) => {
 
 	socket.on('left', () => {
 
-		const rccar_script = spawn(`./utils/rccar.py`, {shell: true})
+		const rccar_script = spawn(`./utils/rccar.py left`, {shell: true})
 
 		rccar_script.stdout.on('data', (data) => {
 			console.log(`out: ${data}`)
@@ -63,7 +58,7 @@ io.on('connection', (_socket) => {
 
 	socket.on('right', () => {
 
-		const rccar_script = spawn(`./utils/rccar.py`, {shell: true})
+		const rccar_script = spawn(`./utils/rccar.py right`, {shell: true})
 
 		rccar_script.stdout.on('data', (data) => {
 			console.log(`out: ${data}`)
@@ -85,7 +80,7 @@ io.on('connection', (_socket) => {
 
 	socket.on('back', () => {
 
-		const rccar_script = spawn(`./utils/rccar.py`, {shell: true})
+		const rccar_script = spawn(`./utils/rccar.py back`, {shell: true})
 
 		rccar_script.stdout.on('data', (data) => {
 			console.log(`out: ${data}`)
